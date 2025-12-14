@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'main.dart';
+import 'home.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -31,11 +32,17 @@ class _LoginScreenState extends State<LoginScreen> {
       final data = jsonDecode(response.body); // Convert JSON to Dart Map
 
       if (data['status'] == 'ok') {
-        print(" LOGIN SUCCESS! Wallet Balance: ${data['user']['wallet']}");
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Welcome back, ${data['user']['name']}!")),
-        );
+       print(" LOGIN SUCCESS!");
        
+        var userProfile = data['user'];
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(userData: userProfile),
+          ),
+        );
+        
       } else {
         print(" LOGIN FAILED: ${data['message']}");
         ScaffoldMessenger.of(context).showSnackBar(
