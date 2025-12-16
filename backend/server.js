@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const SkillModel = require('./models/Skills');
 dotenv.config();
 
 const app = express();
@@ -62,6 +63,33 @@ app.post('/login', async (req, res) => {
     }
 });
 
+//  SKILL ROUTE
+app.post('/add-skill', async (req, res) => {
+    try {
+        const { title, category, description, teacherId, teacherName } = req.body;
+
+        //  Validate Data
+        if (!title || !category || !teacherId) {
+            return res.status(400).json({ status: "error", message: "Missing required fields" });
+        }
+
+        //  the new Skill 
+        const newSkill = await SkillModel.create({
+            title,
+            category,
+            description,
+            teacherId,
+            teacherName
+        });
+        
+        res.json({ status: "ok", message: "Skill Added!", skill: newSkill });
+
+    } catch (error) {
+        console.log("Error adding skill:", error);
+        res.status(500).json({ status: "error", error: "Failed to add skill" });
+    }
+});
+
 app.listen(3000, () => {
-    console.log("🚀 Server is running on Port 3000");
+    console.log(" Server is running on Port 3000");
 });

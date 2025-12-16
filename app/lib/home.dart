@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'login.dart'; 
+import 'add_skill.dart';
+
 class HomeScreen extends StatelessWidget {
   final Map userData; 
 
@@ -30,6 +32,7 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
        
+           
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(20),
@@ -65,29 +68,42 @@ class HomeScreen extends StatelessWidget {
             
             const SizedBox(height: 30),
             
-          
+            // --- ACTION BUTTONS ---
             const Text("Actions", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 10),
             
             Row(
               children: [
+                
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
                        print("Find Skill Clicked");
-                      
+                       
                     },
                     icon: const Icon(Icons.search),
                     label: const Text("Find Skill"),
                     style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
                   ),
                 ),
+                
                 const SizedBox(width: 10),
+                
+              
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
-                       print("Add Skill Clicked");
                        
+                       Navigator.push(
+                         context, 
+                         MaterialPageRoute(
+                           builder: (context) => AddSkillScreen(
+                             
+                             userId: userData['_id'], 
+                             userName: userData['name'],
+                           ),
+                         ),
+                       );
                     },
                     icon: const Icon(Icons.add),
                     label: const Text("Add Skill"),

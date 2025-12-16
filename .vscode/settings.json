@@ -1,3 +1,5 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "cmake.sourceDirectory": "C:/Users/faari/OneDrive/Desktop/Desktop/My_Projects/SkillBarter_Project/app/linux",
+    "postman.settings.dotenv-detection-notification-visibility": false
 }

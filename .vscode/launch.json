@@ -1,0 +1,38 @@
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Start Backend (Node.js)",
+            "program": "${workspaceFolder}/backend/server.js",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
+            "name": "Start Mobile App (Flutter)",
+            "cwd": "${workspaceFolder}/app",
+            "program": "${workspaceFolder}/app/lib/main.dart",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "app (profile mode)",
+            "cwd": "${workspaceFolder}/app",
+            "program": "${workspaceFolder}/app/lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "app (release mode)",
+            "cwd": "${workspaceFolder}/app",
+            "program": "${workspaceFolder}/app/lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
