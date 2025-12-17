@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> loginUser() async {
     // 10.0.2.2 for Android Emulator
-    final url = Uri.parse('http://10.0.2.2:3000/login'); 
+    final url = Uri.parse('https://skillbarter-project.onrender.com/login'); 
 
     try {
       final response = await http.post(

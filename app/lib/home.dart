@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> requestSkill(Map skill) async {
     // FIX 3: Switched back to Emulator Localhost
-    final url = Uri.parse('http://10.0.2.2:3000/request-skill');
+    final url = Uri.parse('https://skillbarter-project.onrender.com');
     
     try {
       final response = await http.post(

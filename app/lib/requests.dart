@@ -30,9 +30,9 @@ class _RequestsScreenState extends State<RequestsScreen> with SingleTickerProvid
     final myId = widget.userData['_id'];
     
     // 1. Fetch Incoming (Teacher View)
-    final urlIncoming = Uri.parse('http://10.0.2.2:3000/my-requests/$myId');
+    final urlIncoming = Uri.parse('https://skillbarter-project.onrender.com/my-requests/$myId');
     // 2. Fetch Sent (Student View)
-    final urlSent = Uri.parse('http://10.0.2.2:3000/my-sent-requests/$myId');
+    final urlSent = Uri.parse('https://skillbarter-project.onrender.com/my-sent-requests/$myId');
 
     try {
       final resIncoming = await http.get(urlIncoming);
@@ -51,7 +51,7 @@ class _RequestsScreenState extends State<RequestsScreen> with SingleTickerProvid
   }
 
   Future<void> updateStatus(String id, String newStatus) async {
-    final url = Uri.parse('http://10.0.2.2:3000/update-request');
+    final url = Uri.parse('https://skillbarter-project.onrender.com');
     await http.post(
       url,
       headers: {"Content-Type": "application/json"},

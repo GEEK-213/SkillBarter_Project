@@ -24,7 +24,7 @@ class _AddSkillScreenState extends State<AddSkillScreen> {
 
   Future<void> postSkill() async {
     // Android Emulator URL
-    final url = Uri.parse('http://10.0.2.2:3000/add-skill');
+    final url = Uri.parse('https://skillbarter-project.onrender.com');
 
     try {
       final response = await http.post(

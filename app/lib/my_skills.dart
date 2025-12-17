@@ -29,7 +29,7 @@ class _MySkillsScreenState extends State<MySkillsScreen> {
     // For simplicity, let's fetch all and filter here (Easy method)
     // A better way is server-side filtering, but this works for MVPs.
     
-    final url = Uri.parse('http://10.0.2.2:3000/get-skills'); 
+    final url = Uri.parse('https://skillbarter-project.onrender.com'); 
     try {
       final response = await http.get(url);
       if (response.statusCode == 200) {
@@ -49,7 +49,7 @@ class _MySkillsScreenState extends State<MySkillsScreen> {
 
   // 2. Delete Logic
   Future<void> deleteSkill(String id) async {
-    final url = Uri.parse('http://10.0.2.2:3000/delete-skill');
+    final url = Uri.parse('https://skillbarter-project.onrender.com');
     await http.post(
       url, 
       headers: {"Content-Type": "application/json"},

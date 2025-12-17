@@ -16,7 +16,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   Future<void> registerUser() async {
     // URL for Android Emulator is 10.0.2.2
-    final url = Uri.parse('http://10.0.2.2:3000/register');
+    final url = Uri.parse('https://skillbarter-project.onrender.com/register');
 
     try {
       final response = await http.post(
